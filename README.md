@@ -1,208 +1,53 @@
-# Sistema de Control de Asistencia de Empleados
-### Employee Attendance System
-Aplicación web para el registro y gestión de asistencia del personal, desarrollada en **PHP puro con arquitectura MVC desde cero**, **Programación Orientada a Objetos (POO)**, **PDO** y **MariaDB** como base de datos.
+# 🦦 Agua SAC - Sistema de Gestión de Cobros
 
-## Tabla de Contenidos
-
-- [Descripción del Negocio](#-1-descripción-del-negocio)
-- [Problema y Solución](#-2-problema-y-solución)
-- [Preanálisis](#-3-preanálisis)
-- [Análisis de Requisitos](#-4-análisis-de-requisitos)
-- [Stack Tecnológico](#-stack-tecnológico)
-- [Arquitectura del Proyecto](#-arquitectura-del-proyecto)
-- [Instalación](#-instalación)
+Sistema web integral diseñado para la automatización de la administración de abonados, generación de recibos mensuales y control de recaudación para la empresa **Agua SAC**.
 
 ## 1. Descripción del Negocio
+**Agua SAC** es una organización de servicios básicos dedicada a la gestión y distribución de agua potable. El sistema moderniza la operación administrativa, eliminando los registros manuales y centralizando la información de deudas y pagos en una plataforma digital accesible.
 
-Las organizaciones modernas necesitan gestionar la asistencia de su personal de forma precisa y centralizada. Este sistema reemplaza los registros manuales en papel o planillas físicas, eliminando problemas como:
+## 2. Identificar el Problema y Solución
+*   **Problema**: El uso de planillas físicas generaba falta de trazabilidad, errores en los saldos y la imposibilidad de consulta remota para el abonado.
+*   **Solución**: Implementación de una arquitectura **MVC** en **PHP** y **MariaDB** que permite el control de caja en tiempo real y ofrece un portal de consulta externa mediante DNI.
 
-- Registros incompletos o manipulados
-- Alto costo administrativo por procesar asistencias manualmente
-- Imposibilidad de generar reportes históricos de forma automática
-- Falta de trazabilidad y auditoría sobre las marcaciones
-- Dependencia de personal para consolidar información
-
-## 2. Problema y Solución
-
-### Problema Identificado
-Las empresas carecen de un sistema digital accesible para registrar, monitorear y gestionar la asistencia de sus empleados. El control manual genera imprecisiones, pérdidas de información y dificulta la toma de decisiones basadas en datos confiables.
-
-### Causas
-- Ausencia de una herramienta digital centralizada para marcar asistencia
-- Los registros en papel se pierden, deterioran o se alteran fácilmente
-- No existe diferenciación de roles entre quién administra y quién solo consulta
-- Es imposible generar reportes históricos de forma automática
-
-### Efectos
-- Pérdida económica por pago incorrecto de horas trabajadas
-- Incapacidad de detectar patrones de ausentismo a tiempo
-- Mayor carga operativa para el área de Recursos Humanos
-
-### Solución Propuesta
-
-Desarrollar una aplicación web con **PHP + POO + MVC** que permita:
-
-- Autenticar usuarios con roles diferenciados (administrador / empleado)
-- Registrar asistencia con fecha y hora exactas usando PDO y MariaDB
-- Gestionar el catálogo de empleados y departamentos (CRUD completo)
-- Consultar y filtrar el historial de asistencias por empleado y fecha
-- Visualizar un dashboard con el estado de asistencia del día en curso
-- 
 ## 3. Preanálisis
-
-### Necesidades Identificadas
-
-1. Registrar quién entra y sale, con fecha y hora exacta
-2. Panel de control con el estado de asistencia del día
-3. Administrar el catálogo de empleados (crear, editar, eliminar)
-4. Organizar empleados por departamentos
-5. Consultar historial de asistencias filtrado por empleado y período
-6. Autenticar usuarios para proteger la información del sistema
-7. Diferenciar permisos entre administrador y empleado
-
-### Estudio de Viabilidad
-
-#### Viabilidad Técnica
-- PHP 8+ disponible en prácticamente cualquier servidor web
-- MariaDB es un gestor gratuito, robusto y ampliamente documentado
-- Apache con `mod_rewrite` disponible en XAMPP para desarrollo local
-- La POO permite estructurar el sistema con clases, herencia y encapsulamiento
-- El patrón MVC está documentado en [`CONCEPTS.md`](./CONCEPTS.md)
-
-#### Viabilidad Económica
-- Stack completamente open source y gratuito (PHP, MariaDB, Apache, Git)
-- Entorno de desarrollo levantable localmente con XAMPP sin costo
-- No se requieren licencias de software adicionales
-
-#### Viabilidad Operacional
-- Los usuarios solo necesitan un navegador web para acceder
-- Administrable de forma remota una vez desplegado
-- La separación en módulos facilita la capacitación del personal
-
-### Alcance del Sistema
-
-#### Dentro del alcance
-- Autenticación con sesiones PHP y roles (administrador / empleado)
-- Módulo de empleados: CRUD completo
-- Módulo de departamentos: gestión de áreas
-- Módulo de asistencia: registro de entrada/salida e historial
-- Dashboard con resumen de asistencias del día
-- Layouts reutilizables (header, footer, navbar) — principio DRY
-- Base de datos con `schema.sql` y datos de prueba `seeds.sql`
-
-#### Fuera del alcance
-- Integración con dispositivos biométricos
-- Módulo de nómina o cálculo de salarios
-- Aplicación móvil nativa (iOS / Android)
-- Notificaciones por correo o SMS
-- Integración con sistemas ERP externos
-
----
+*   **Necesidades**: Registro de clientes, emisión masiva de recibos y seguridad en el acceso administrativo.
+*   **Viabilidad**: Stack tecnológico basado en software de código abierto (PHP/MariaDB), garantizando bajo costo y alta compatibilidad.
+*   **Alcance**: Desde el registro del abonado hasta la implantación del sistema en entorno local (XAMPP).
 
 ## 4. Análisis de Requisitos
+### Requisitos Funcionales
+*   **Gestión de Usuarios**: Autenticación para personal administrativo (Admin/Operador).
+*   **Control de Clientes**: CRUD completo de abonados vinculados por DNI.
+*   **Facturación**: Generación de recibos con periodos mensuales y montos específicos.
+*   **Consulta Externa**: Portal para que el cliente visualice deudas con su DNI y clave web.
+*   **Registro de Pagos**: Liquidación de recibos y registro de transacciones de caja.
 
-### 4.1 Requisitos Funcionales
+### Requisitos No Funcionales
+*   **Seguridad**: Encriptación de claves y uso de **PDO** contra Inyección SQL.
+*   **Arquitectura**: Patrón Modelo-Vista-Controlador (MVC).
+*   **Rendimiento**: Motor de base de datos **InnoDB** para integridad de transacciones.
 
-### 4.2 Requisitos No Funcionales
+## 5. Diseño de Base de Datos
+El esquema relacional consta de 4 tablas optimizadas:
+*   `usuarios`: Personal administrativo.
+*   `clientes`: Datos maestros de abonados.
+*   `recibos`: Registro de deudas mensuales.
+*   `pagos`: Historial de recaudación.
 
-## Stack Tecnológico
+## 6. Stack Tecnológico
+*   **Backend**: PHP 8+ (POO & MVC)
+*   **Base de Datos**: MariaDB / MySQL
+*   **Conectividad**: PDO (PHP Data Objects)
+*   **Frontend**: HTML5, CSS3, JavaScript
 
-| Capa | Tecnología |
-|---|---|
-| **Backend** | PHP 8+ — POO (Programación Orientada a Objetos) — MVC desde cero |
-| **Base de datos** | MariaDB — PDO (PHP Data Objects) con prepared statements |
-| **Frontend** | HTML5, CSS3, JavaScript — Vistas PHP con layouts reutilizables |
-| **Servidor web** | Apache — Reescritura de URLs vía `.htaccess` |
-| **Control de versiones** | Git + GitHub |
-| **Configuración** | Variables de entorno (`.env`) para credenciales |
+## 7. Implantación
+1. Clonar el repositorio.
+2. Importar el archivo `schema.sql` en MariaDB.
+3. Configurar la conexión en `config/Conexion.php`.
+4. Ejecutar mediante un servidor local como XAMPP.
+
 ---
-
-## Arquitectura del Proyecto
-
-El sistema aplica **POO** y **MVC** implementado desde cero. Los 4 pilares de POO en el proyecto:
-
-### Flujo de una Petición
-
-
-### Estructura del Proyecto
-
-## Instalación
-
-### Requisitos previos
-- PHP 8+
-- Apache con `mod_rewrite` habilitado (XAMPP recomendado)
-- MariaDB / MySQL
-
-### Pasos
-
-```bash
-# 1. Clonar el repositorio
-git clone https://github.com/ojitoslanda/employee-attendance-system.git
-cd employee-attendance-system
-
-# 2. Configurar variables de entorno
-cp .env.example .env
-# Editar .env con tus credenciales de base de datos
-
-# 3. Crear la base de datos
-
-
-# 4. Apuntar el servidor web a la carpeta public/
-
-```
-
-## TRELLO
-
-### DIAGRAMA DE FIGMA UI/UX
-
-## Base de datos
-```sql
-create database senai_asistencia;
-use senai_asistencia;
-
-
-create table cargo (
-id_cargo int auto_increment primary key,
-nombre_cargo varchar(50) not null
-)ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
-create table empleado(
-id_empleado int primary key auto_increment,
-nombre varchar(100) not null,
-apellido varchar(100) not null,
-dni varchar(8) unique not null,
-celular varchar(20),
-correo varchar (100) not null unique,
-id_cargo int not null,
-fecha_registro timestamp default current_timestamp,
-foreign key (id_cargo) references cargo(id_cargo)
-)ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
-create table usuario(
-id_usuario int auto_increment primary key,
-roles enum('admin', 'superadmin') default 'admin',
-nombre_usuario varchar (150) not null,
-clave varchar(250) not null
-)ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
-create table asistencia(
-id_asistencia int auto_increment primary key,
-fecha date not null,
-hora_entrada timestamp default current_timestamp not null,
-hora_salida timestamp default current_timestamp not null,
-estado enum('asistio', 'tardanza', 'falto') default 'falto' not null,
-id_empleado int not null,
-foreign key (id_empleado) references empleado(id_empleado)
-)ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-```
-
-### Diagrama Entidad-Relacion (DER)
-
- 
-### Modelo Relacional (MR)
-![MODELO_RELACIONAL](https://raw.githubusercontent.com/ojitoslanda/testing/refs/heads/master/img/db.png)
-
-### Cardinalidades
+Desarrollado por Aniebell🦦
 
 
 
