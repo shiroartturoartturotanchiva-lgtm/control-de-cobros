@@ -1,0 +1,5 @@
+# Iniciar
+RewriteEngine On
+
+# Redireccionar si entran a la raiz del proyecto
+RewriteRule ^$ app/index.php [L]
