@@ -1,4 +1,4 @@
-# 🦦 Agua SAC - Sistema de Gestión de Cobros
+#  Agua SAC - Sistema de Gestión de Cobros
 
 Sistema web integral diseñado para la automatización de la administración de abonados, generación de recibos mensuales y control de recaudación para la empresa **Agua SAC**.
 
@@ -6,7 +6,7 @@ Sistema web integral diseñado para la automatización de la administración de 
 **Agua SAC** es una organización de servicios básicos dedicada a la gestión y distribución de agua potable. El sistema moderniza la operación administrativa, eliminando los registros manuales y centralizando la información de deudas y pagos en una plataforma digital accesible.
 
 ## 2. Identificar el Problema y Solución
-*   **Problema**: El uso de planillas físicas generaba falta de trazabilidad, errores en los saldos y la imposibilidad de consulta remota para el abonado.
+*   **Problema**: El uso de planillas físicas generaba falta de trazabilidad, errores en los saldos y la imposibilidad de consulta remota para el cliente.
 *   **Solución**: Implementación de una arquitectura **MVC** en **PHP** y **MariaDB** que permite el control de caja en tiempo real y ofrece un portal de consulta externa mediante DNI.
 
 ## 3. Preanálisis
@@ -30,7 +30,7 @@ Sistema web integral diseñado para la automatización de la administración de 
 ## 5. Diseño de Base de Datos
 El esquema relacional consta de 4 tablas optimizadas:
 *   `usuarios`: Personal administrativo.
-*   `clientes`: Datos maestros de abonados.
+*   `clientes`: Datos  de cliente.
 *   `recibos`: Registro de deudas mensuales.
 *   `pagos`: Historial de recaudación.
 
@@ -47,7 +47,7 @@ El esquema relacional consta de 4 tablas optimizadas:
 4. Ejecutar mediante un servidor local como XAMPP.
 
 ---
-Desarrollado por Aniebell🦦
+
 
 
 
