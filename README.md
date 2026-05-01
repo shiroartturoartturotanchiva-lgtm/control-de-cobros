@@ -47,7 +47,55 @@ El esquema relacional consta de 4 tablas optimizadas:
 4. Ejecutar mediante un servidor local como XAMPP.
 
 ---
+-- Creación de la base de datos para Agua SAC
+CREATE DATABASE IF NOT EXISTS gestion_agua_sac;
+USE gestion_agua_sac;
 
+-- 1. Usuarios (Acceso Administrativo)
+-- Almacena al personal que registra consumos y realiza cobros.
+CREATE TABLE usuarios (
+    id_usuario INT AUTO_INCREMENT PRIMARY KEY,
+    nombre_usuario VARCHAR(50) NOT NULL UNIQUE,
+    clave VARCHAR(250) NOT NULL, -- Encriptada con password_hash() en PHP
+    rol ENUM('admin', 'operador') DEFAULT 'operador'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- 2. Clientes (Acceso de Consulta)
+-- El DNI actúa como identificador único y la clave_web permite el acceso al portal.
+CREATE TABLE clientes (
+    id_cliente INT AUTO_INCREMENT PRIMARY KEY,
+    dni CHAR(8) NOT NULL UNIQUE,
+    nombre VARCHAR(100) NOT NULL,
+    direccion VARCHAR(150),
+    clave_web VARCHAR(250) DEFAULT '123456', -- Clave para que el abonado vea su deuda
+    fecha_registro TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- 3. Recibos (Control de Deudas)
+-- Representa la facturación mensual vinculada a un cliente.
+CREATE TABLE recibos (
+    id_recibo INT AUTO_INCREMENT PRIMARY KEY,
+    id_cliente INT NOT NULL,
+    mes_periodo VARCHAR(50) NOT NULL, -- Ej: 'Mayo 2026'
+    monto_total DECIMAL(10,2) NOT NULL,
+    estado ENUM('pendiente', 'pagado', 'anulado') DEFAULT 'pendiente',
+    fecha_emision TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (id_cliente) REFERENCES clientes(id_cliente) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- 4. Pagos (Historial de Caja)
+-- Registro detallado de los cobros confirmados para auditoría.
+CREATE TABLE pagos (
+    id_pago INT AUTO_INCREMENT PRIMARY KEY,
+    id_recibo INT NOT NULL,
+    id_usuario INT NOT NULL, -- Identifica al cajero que realizó el cobro
+    fecha_pago TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    metodo_pago VARCHAR(50) NOT NULL, -- Efectivo, Yape, Plin, etc.
+    FOREIGN KEY (id_recibo) REFERENCES recibos(id_recibo) ON DELETE CASCADE,
+    FOREIGN KEY (id_usuario) REFERENCES usuarios(id_usuario)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+---
 
 
 
