@@ -94,3 +94,6 @@ CREATE TABLE pagos (
     CONSTRAINT fk_pago_usuario FOREIGN KEY (id_usuario) 
         REFERENCES usuarios(id_usuario)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+
+#  Agua SAC - Sistema de Gestión de Cobros
