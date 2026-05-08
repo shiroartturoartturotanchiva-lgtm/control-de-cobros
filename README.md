@@ -98,4 +98,13 @@ CREATE TABLE pagos (
 ```
 
 
-#  Agua SAC - Sistema de Gestión de Cobros
+#  Imagen del problema 
+
+<img width="899" height="1599" alt="WhatsApp Image 2026-05-07 at 7 43 40 PM" src="https://github.com/user-attachments/assets/625f0f93-ad94-4da0-b783-32391ad5b2e3" />
+
+#  imagen de la empresa
+
+<img width="899" height="1599" alt="WhatsApp Image 2026-05-07 at 7 43 32 PM" src="https://github.com/user-attachments/assets/65085f42-c7c0-4c97-8fca-2d7dc36c9d0f" />
+
+
+
