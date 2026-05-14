@@ -49,8 +49,8 @@ El esquema relacional consta de 4 tablas optimizadas:
 ---
 ```sql
 -- Base de datos para Agua SAC
-CREATE DATABASE IF NOT EXISTS gestion_agua_sac;
-USE gestion_agua_sac;
+CREATE DATABASE IF NOT EXISTS control_de_cobros;
+USE control_de_cobros;
 
 -- 1. Usuarios (Acceso Administrativo)
 CREATE TABLE usuarios (
@@ -94,6 +94,7 @@ CREATE TABLE pagos (
     CONSTRAINT fk_pago_usuario FOREIGN KEY (id_usuario) 
         REFERENCES usuarios(id_usuario)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
 
 ```
 
