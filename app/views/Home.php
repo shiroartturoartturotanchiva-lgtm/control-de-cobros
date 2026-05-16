@@ -20,19 +20,6 @@
             <ul class="navbar-nav align-items-center">
                 <li class="nav-item"><a class="nav-link active" href="#inicio">Inicio</a></li>
                 <li class="nav-item"><a class="nav-link" href="#beneficios">Beneficios</a></li>
-                
-                <li class="nav-item">
-                    <a class="nav-link text-white" href="index.php?url=clientes">
-                        <i class="fa-solid fa-users text-primary me-1"></i> Ver Clientes
-                    </a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link text-white" href="index.php?url=recibos">
-                        <i class="fa-solid fa-file-invoice-dollar text-primary me-1"></i> Ver Recibos
-                    </a>
-                </li>
-                
                 <li class="nav-item"><a class="btn btn-primary btn-sm ms-2 text-white px-3" href="login.php"><i class="fa-solid fa-right-to-bracket"></i> Iniciar Sesión</a></li>
             </ul>
         </div>
@@ -88,29 +75,31 @@
     </section>
 
     <section id="registro" class="py-5 bg-light">
-        <div class="container py-4">
-            <div class="row justify-content-center">
-                <div class="col-lg-6 col-md-8">
-                    <div class="card shadow p-4 p-md-5 border-0 rounded-4">
-                        <h3 class="fw-bold text-center mb-2">Crea tu Cuenta</h3>
-                        <p class="text-muted text-center mb-4">Ingresa tus datos para acceder a la demostración.</p>
-                        
-                        <form id="landingForm">
-                            <div class="mb-3">
-                                <label class="form-label fw-semibold">Nombre Completo</label>
-                                <input type="text" id="regNombre" class="form-control" placeholder="Ej.Nombre de usuario" required>
-                            </div>
-                            <div class="mb-3">
-                                <label class="form-label fw-semibold">Correo Electrónico</label>
-                                <input type="email" id="regEmail" class="form-control" placeholder="nombre@correo.com" required>
-                            </div>
-                            <button type="submit" class="btn btn-primary w-100 py-2.5 fw-bold mt-2">Registrarme Ahora</button>
-                        </form>
-                    </div>
+    <div class="container py-4">
+        <div class="row justify-content-center">
+            <div class="col-lg-6 col-md-8">
+                <div class="card shadow p-4 p-md-5 border-0 rounded-4">
+                    <h3 class="fw-bold text-center mb-2">Crea tu Cuenta</h3>
+                    <p class="text-muted text-center mb-4">Ingresa tus datos para acceder a la demostración.</p>
+                    
+                    <form id="landingForm">
+                        <div class="mb-3">
+                            <label class="form-label fw-semibold">Nombre Completo</label>
+                            <input type="text" id="regNombre" class="form-control" placeholder="Ej. Nombre de usuario" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label fw-semibold">Correo Electrónico</label>
+                            <input type="email" id="regEmail" class="form-control" placeholder="nombre@correo.com" required>
+                        </div>
+                        <button type="submit" id="btnRegistro" class="btn btn-primary w-100 py-2.5 fw-bold mt-2">
+                            Registrarme Ahora
+                        </button>
+                    </form>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
     <footer class="py-4 text-center">
         <div class="container">
@@ -119,5 +108,6 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="public/js/Home.js"></script>
 </body>
 </html>
