@@ -1,0 +1,39 @@
+/* Panel Administrativo */
+.sidebar-moderno {
+    width: 260px;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #1e293b !important;
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+.sidebar-moderno .nav-link {
+    color: #cbd5e1 !important;
+    padding: 12px 20px;
+    margin: 4px 15px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.sidebar-moderno .nav-link:hover, 
+.sidebar-moderno .nav-link.active {
+    background-color: #0d6efd !important;
+    color: white !important;
+}
+
+/* Responsivas para Ocultar/Mostrar en Celulares */
+@media (max-width: 992px) {
+    .sidebar-moderno {
+        left: -260px;
+    }
+    .sidebar-moderno.mostrar-movil {
+        left: 0;
+    }
+}

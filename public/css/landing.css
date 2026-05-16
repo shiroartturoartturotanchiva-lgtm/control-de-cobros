@@ -1,0 +1,33 @@
+/* Estilos para la Landing  */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f8f9fa;
+}
+
+.hero-section {
+    background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+    color: white;
+    padding: 140px 0 100px 0;
+}
+
+.feature-card {
+    border: none;
+    border-radius: 12px;
+    transition: transform 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+}
+
+.icon-box {
+    font-size: 2.5rem;
+    color: #0d6efd;
+    margin-bottom: 1rem;
+}
+
+footer {
+    background-color: #0f172a;
+    color: #94a3b8;
+}

@@ -1,23 +1,39 @@
 <?php
-Class Database{ // Clase para conectarse con la base de datos.
-    //Guardamos la conexión con el modificador de acceso STATIC
-    // El ? significa que la variable puede ser de tipo PDO o NULL.
-    private static ?PDO $connection = null;
-    // Este método devuelve la conexión a la base de datos
-    public static function getConnection(): PDO{
-        //Si en caso no encuentra la conexion     
-         if(self::$connection === null){
-            // Armamos la conexión con los datos de .ENV
-            //$dns es una variable
-            $dns="mysql:host=".DB_HOST.";port=".DB_PORT.";dbname=".DB_NAME.";charset=utf8mb4"; 
-            // CREAMOS LA CONEXION DE PDO
-            self::$connection = new PDO($dns, DB_USER, DB_PASS, [
-                //Si hay error, lanza una excepción en vez de fallar.
-                  PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
-                //Los resultados de las consultas vienen como arrays asociativas.
-                  PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
-            ]);
-         } //Creamos un retorno de valores
-        return self::$connection;
+// app/core/Database.php
+
+class Database {
+    private $host;
+    private $db_name;
+    private $username;
+    private $password;
+    public $conn;
+
+    public function __construct() {
+        // Asignamos los valores desde las constantes de config.php
+        $this->host = DB_HOST;
+        $this->db_name = DB_NAME;
+        $this->username = DB_USER;
+        $this->password = DB_PASS;
+    }
+
+    public function getConnection() {
+        $this->conn = null;
+
+        try {
+            // Usamos mysqli para conectar a la base de datos 'control_de_cobros'
+            $this->conn = new mysqli($this->host, $this->username, $this->password, $this->db_name);
+            
+            if ($this->conn->connect_error) {
+                die("Error de conexión: " . $this->conn->connect_error);
+            }
+
+            // Establecemos el juego de caracteres a utf8 para evitar errores con tildes
+            $this->conn->set_charset("utf8");
+
+        } catch (Exception $e) {
+            echo "Error en el servidor: " . $e->getMessage();
+        }
+
+        return $this->conn;
     }
 }
