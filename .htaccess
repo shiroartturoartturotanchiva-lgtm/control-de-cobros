@@ -1,0 +1,10 @@
+RewriteEngine On
+RewriteBase /control-de-cobros/
+
+# Si la URL está vacía, forzar que el parámetro 'url' sea 'dashboard'
+RewriteRule ^$ public/index.php?url=dashboard [L,QSA]
+
+# Si el archivo o carpeta no existe, enviar todo al index.php de public
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ public/index.php?url=$1 [QSA,L]
