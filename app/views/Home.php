@@ -80,7 +80,7 @@
                     <div class="card h-100 p-4 feature-card text-center">
                         <div class="icon-box"><i class="fa-solid fa-chart-pie"></i></div>
                         <h4 class="fw-bold">Acceso Multiplataforma</h4>
-                        <p class="text-muted m-0">Diseñado con Bootstrap, accede de manera óptima desde computadoras, tablets o teléfonos inteligentes.</p>
+                        <p class="text-muted m-0">Accede de manera óptima desde computadoras, tablets o teléfonos inteligentes.</p>
                     </div>
                 </div>
             </div>
