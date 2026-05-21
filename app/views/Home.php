@@ -84,15 +84,14 @@
                     
                     <form id="landingForm">
                         <div class="mb-3">
-                            <label class="form-label fw-semibold">Nombre Completo</label>
+                            <label class="form-label fw-semibold">Nombre de Usuario</label>
                             <input type="text" id="regNombre" class="form-control" placeholder="Ej. Nombre de usuario" required>
                         </div>
                         <div class="mb-3">
-                            <label class="form-label fw-semibold">Correo Electrónico</label>
-                            <input type="email" id="regEmail" class="form-control" placeholder="nombre@correo.com" required>
+                            <label class="form-label fw-semibold">contraseña</label>
+                            <input type="password" id="regPassword" class="form-control" placeholder="Ingresa una  contraseña" required>
                         </div>
-                        <button type="submit" id="btnRegistro" class="btn btn-primary w-100 py-2.5 fw-bold mt-2">
-                            Registrarme Ahora
+                        <button type="submit" id="btnRegistro" class="btn btn-primary w-100 py-2.5 fw-bold mt-2"> Registrarme
                         </button>
                     </form>
                 </div>
