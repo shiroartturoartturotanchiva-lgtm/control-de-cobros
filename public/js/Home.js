@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     if (formLanding) {
         formLanding.addEventListener('submit', function(e) {
-            e.preventDefault(); // Evita que la página se recargue
+            e.preventDefault(); // se evita que cargue mucho
 
             const boton = document.getElementById('btnRegistro');
             const nombre = document.getElementById('regNombre').value;
@@ -16,9 +16,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
             // Pausa estética de 1.2 segundos y redirección al panel
             setTimeout(function() {
-                alert('¡Bienvenido, ' + nombre + '! Tu cuenta ha sido creada con éxito. Redirigiendo al panel...');
+                alert('¡Bienvenido, ' + nombre + '! Tu cuenta ha sido creada con éxito...');
                 window.location.href = 'index.php?url=clientes';
             }, 1200); 
+            
         });
     }
+    
 });
