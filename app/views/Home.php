@@ -7,6 +7,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="public/css/landing.css">
+     <link rel="stylesheet" href="public/css/video.css">
 </head>
 <body>
 
@@ -20,27 +21,35 @@
             <ul class="navbar-nav align-items-center">
                 <li class="nav-item"><a class="nav-link active" href="#inicio">Inicio</a></li>
                 <li class="nav-item"><a class="nav-link" href="#beneficios">Beneficios</a></li>
-                <li class="nav-item"><a class="btn btn-primary btn-sm ms-2 text-white px-3" href="login.php"><i class="fa-solid fa-right-to-bracket"></i> Iniciar Sesión</a></li>
+                <a class="btn btn-primary btn-sm ms-2 text-white px-3" href="index.php?url=auth/login">
+                <i class="fa-solid fa-right-to-bracket"></i> Iniciar Sesión </a>   
             </ul>
         </div>
     </div>
 </nav>
 
     <section id="inicio" class="hero-section text-center text-md-start">
-        <div class="container">
-            <div class="row align-items-center g-5">
-                <div class="col-md-7">
-                    <h1 class="display-4 fw-bold mb-3">Automatiza tus Cobros y Control de Clientes</h1>
-                    <p class="lead mb-4" style="color: #cbd5e1;">La plataforma inteligente diseñada para optimizar tus recibos, organizar tu base de datos y elevar la administración de tu negocio al siguiente nivel.</p>
-                    <a href="#registro" class="btn btn-primary btn-lg px-4 me-2 shadow">Empezar Gratis</a>
-                    <a href="#beneficios" class="btn btn-outline-light btn-lg px-4">Saber Más</a>
-                </div>
-                <div class="col-md-5 text-center">
-                    <i class="fa-solid fa-laptop-code text-primary opacity-75" style="font-size: 10rem;"></i>
-                </div>
+    <video autoplay muted loop playsinline class="video-fondo">
+        <source src="public/video/video.mp4" type="video/mp4">
+        Tu navegador no soporta video.
+    </video>
+
+    <div class="overlay"></div>
+
+    <div class="container position-relative" style="z-index: 2;">
+        <div class="row align-items-center g-5">
+            <div class="col-md-7">
+                <h1 class="display-4 fw-bold mb-3 text-white">Automatiza tus Cobros y Control de Clientes</h1>
+                <p class="lead mb-4" style="color: #cbd5e1;">La plataforma inteligente diseñada para optimizar tus recibos, organizar tu base de datos y elevar la administración de tu negocio al siguiente nivel.</p>
+                <a href="#registro" class="btn btn-primary btn-lg px-4 me-2 shadow">Empezar Gratis</a>
+                <a href="#beneficios" class="btn btn-outline-light btn-lg px-4">Saber Más</a>
+            </div>
+            <div class="col-md-5 text-center">
+                <i class="fa-solid fa-laptop-code text-primary opacity-75" style="font-size: 10rem;"></i>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
     <section id="beneficios" class="py-5 bg-white">
         <div class="container py-4">
@@ -73,32 +82,6 @@
             </div>
         </div>
     </section>
-
-    <section id="registro" class="py-5 bg-light">
-    <div class="container py-4">
-        <div class="row justify-content-center">
-            <div class="col-lg-6 col-md-8">
-                <div class="card shadow p-4 p-md-5 border-0 rounded-4">
-                    <h3 class="fw-bold text-center mb-2">Crea tu Cuenta</h3>
-                    <p class="text-muted text-center mb-4">Ingresa tus datos para acceder a la demostración.</p>
-                    
-                    <form id="landingForm">
-                        <div class="mb-3">
-                            <label class="form-label fw-semibold">Nombre de Usuario</label>
-                            <input type="text" id="regNombre" class="form-control" placeholder="Ej. Nombre de usuario" required>
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label fw-semibold">contraseña</label>
-                            <input type="password" id="regPassword" class="form-control" placeholder="Ingresa una  contraseña" required>
-                        </div>
-                        <button type="submit" id="btnRegistro" class="btn btn-primary w-100 py-2.5 fw-bold mt-2"> Registrarme
-                        </button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
 
     <footer class="py-4 text-center">
         <div class="container">
