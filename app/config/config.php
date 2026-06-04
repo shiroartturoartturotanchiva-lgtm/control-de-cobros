@@ -1,8 +1,6 @@
 <?php
-// Título de la app
 define("TITLE_BUSINESS", "AGUA SAC - CONTROL DE COBROS");
 
-// SUBIR DOS NIVELES: de 'config' a 'app', y de 'app' a la raíz
 $envFile = dirname(__DIR__, 2) . '/.env';
 
 if(file_exists($envFile)){
