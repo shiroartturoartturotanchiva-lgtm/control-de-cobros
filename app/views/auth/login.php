@@ -15,6 +15,8 @@
         <input id="pass" name="clave" type="password" required>
 
         <button type="submit">iniciar sesion</button>
+        <button type="submit" formaction="index.php?url=auth/login">volver</button>
+
     </form>
 </body>
 </html>
