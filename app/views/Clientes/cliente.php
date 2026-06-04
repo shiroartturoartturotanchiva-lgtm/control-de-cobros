@@ -1,5 +1,5 @@
-<?php include BASE_PATH . '/app/views/layout/header.php'; ?>
-<?php include BASE_PATH . '/app/views/layout/sidebar-dashboard.php'; ?>
+<?php include BASE_PATH . '/views/layout/header.php'; ?>
+<?php include BASE_PATH . '/views/layout/sidebar-dashboard.php'; ?>
 
 <link rel="stylesheet" href="<?php echo BASE_URL; ?>/public/css/clientes.css?v=<?php echo time(); ?>">
 
@@ -64,4 +64,4 @@
     </div>
 </main>
 
-<?php include BASE_PATH . '/app/views/layout/footer.php'; ?>
+<?php include BASE_PATH . '/views/layout/footer.php'; ?>
