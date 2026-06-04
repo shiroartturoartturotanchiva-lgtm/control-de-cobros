@@ -19,6 +19,10 @@
         <li class="nav-item">
             <a class="nav-link" href="/control-de-cobros/index.php?url=recibos"><i class="fa-solid fa-file-invoice-dollar"></i> Recibos</a>
         </li>
+        
+         <li class="nav-item">
+            <a class="nav-link" href="/control-de-cobros/index.php?url=pagos"><i class="fa-solid fa-money-bill-wave"></i> Pagos</a>
+        </li>
     </ul>
 </div>
 <div class="d-lg-none position-fixed top-0 start-0 m-3" style="z-index: 1100;">
