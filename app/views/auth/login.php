@@ -1,18 +1,20 @@
 <?php require_once 'config/config.php'; ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo TITLE_BUSINESS; ?></title>
-</head>
+<link rel="stylesheet" href="/control-de-cobros/public/css/login.css"</head>
 <body>
-    <form action="#">
+    <form action="validar.php" method="POST">
         <label for="user">Usuario</label>
-        <input id="user" type="text" require>
+        <input id="user" name="usuario" type="text" required>
+
         <label for="pass">Contraseña</label>
-        <input id="pass" type="password">
-        <button type="button">Enviar</button>
+        <input id="pass" name="clave" type="password" required>
+
+        <button type="submit">iniciar sesion</button>
     </form>
 </body>
 </html>
