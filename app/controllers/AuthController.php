@@ -1,6 +1,4 @@
 <?php
-// app/controllers/AuthController.php
-
 class AuthController {
     private $db;
 
@@ -19,29 +17,29 @@ class AuthController {
             $result = $stmt->get_result();
             $usuario = $result->fetch_assoc();
 
+            // Verificamos si el usuario existe y la contraseña es correcta
             if ($usuario && password_verify($pass, $usuario['clave'])) {
-                // La sesión ya se inició en index.php, así que solo asignamos
+                // Iniciamos la sesión
+                if (session_status() === PHP_SESSION_NONE) {
+                    session_start();
+                }
+                
                 $_SESSION['id_usuario'] = $usuario['id_usuario'];
                 $_SESSION['nombre_usuario'] = $usuario['nombre_usuario'];
                 $_SESSION['rol'] = $usuario['rol'];
                 
-                // REDIRECCIÓN CORREGIDA: Usamos solo 'index'
-                header("Location: index");
-                exit();
+                // --- AQUÍ ESTABA EL PROBLEMA ---
+                // Debemos redirigir a una página válida que tu Router reconozca
+                // Usamos la ruta que configuramos en el Router (index.php?url=clientes)
+                header("Location: /control-de-cobros/index.php?url=clientes");
+                exit(); 
             } else {
                 $error = "Usuario o contraseña incorrectos";
-                require_once BASE_PATH . '/app/views/login.php';
+                require_once BASE_PATH . '/views/login.php';
             }
         } else {
-            require_once BASE_PATH . '/app/views/login.php';
+            // Si no es POST, mostramos el login
+            require_once BASE_PATH . '/views/auth/login.php';
         }
-    }
-
-    public function logout() {
-        session_unset();
-        session_destroy();
-        // REDIRECCIÓN CORREGIDA: Usamos solo 'login'
-        header("Location: login");
-        exit();
     }
 }
