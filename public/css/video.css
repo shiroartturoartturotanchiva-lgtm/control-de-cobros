@@ -1,0 +1,27 @@
+#inicio {
+    position: relative;
+    height: 100vh; /* Ajusta según lo necesites */
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+.video-fondo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Mantiene la proporción y cubre el área */
+    z-index: 0;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(11, 17, 32, 0.7); /* Oscurece el video para que el texto resalte */
+    z-index: 1;
+}
