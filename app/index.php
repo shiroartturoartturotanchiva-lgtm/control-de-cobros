@@ -8,7 +8,5 @@ define('BASE_PATH', __DIR__);
 $database = new Database();
 $db = $database->getConnection();
 
-// --- PRUEBA DIAGNÓSTICA ---
-
 $app = new App();
 $app->run();
