@@ -19,7 +19,7 @@ Sistema web integral diseñado para la automatización de la administración de 
 *   **Gestión de Usuarios**: Autenticación para personal administrativo (Admin/Operador).
 *   **Control de Clientes**: CRUD completo de abonados vinculados por DNI.
 *   **Facturación**: Generación de recibos con periodos mensuales y montos específicos.
-*   **Consulta Externa**: Portal para que el cliente visualice deudas con su DNI y clave web.
+*   **Consulta Externa**: Portal para que el cliente visualice deudas con su DNI.
 *   **Registro de Pagos**: Liquidación de recibos y registro de transacciones de caja.
 
 ## trello
