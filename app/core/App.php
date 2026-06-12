@@ -1,15 +1,15 @@
 <?php
-require_once __DIR__ . '/Router.php';
 
 class App {
-    public function run(): void {
-        // Iniciamos la sesión de forma segura
-        if (session_status() === PHP_SESSION_NONE) {
-            session_start();
-        }
+    protected $db;
 
-        // Llamamos al Router que acabamos de crear
-        $router = new Router();
+    public function __construct($db) {
+        $this->db = $db;
+    }
+
+    public function run() {
+        // Aquí pasamos $this->db al nuevo Router
+        $router = new Router($this->db); 
         $router->run();
     }
 }
