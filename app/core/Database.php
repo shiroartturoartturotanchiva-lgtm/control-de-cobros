@@ -1,12 +1,15 @@
 <?php
-// app/core/Database.php
-
 class Database {
     private $host;
     private $db_name;
     private $username;
     private $password;
     public $conn;
+   
+    public static function connect() {
+    $instance = new self();
+    return $instance->getConnection();
+}
 
     public function __construct() {
         // Asignamos los valores desde las constantes de config.php
