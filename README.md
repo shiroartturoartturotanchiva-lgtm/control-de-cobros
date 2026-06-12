@@ -111,5 +111,8 @@ CREATE TABLE pagos (
 
 <img width="899" height="1599" alt="WhatsApp Image 2026-05-07 at 7 43 32 PM" src="https://github.com/user-attachments/assets/65085f42-c7c0-4c97-8fca-2d7dc36c9d0f" />
 
+#  imagen de la empresa
+
+<img width="1600" height="1200" alt="WhatsApp Image 2026-06-12 at 11.40.17 AM" src="AQUÍ_VA_TU_ENLACE" />
 
 
