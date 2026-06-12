@@ -1,4 +1,4 @@
-<img width="1600" height="1200" alt="WhatsApp Image 2026-06-12 at 11 40 17 AM" src="https://github.com/user-attachments/assets/ef73ed0a-4a60-4a50-8703-d487d33a79ba" />#  Agua SAC - Sistema de Gestión de Cobros
+#  Agua SAC - Sistema de Gestión de Cobros
 
 Sistema web integral diseñado para la automatización de la administración de abonados, generación de recibos mensuales y control de recaudación para la empresa **Agua SAC**.
 
