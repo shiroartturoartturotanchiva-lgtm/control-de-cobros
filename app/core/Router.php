@@ -1,48 +1,37 @@
 <?php
-
 class Router {
+    private $db;
+
+    public function __construct($db) {
+        $this->db = $db;
+    }
+
     public function run() {
-        $url = $this->parseUrl();
-        
-        // 1. Definimos los valores por defecto
-        $controladorNombre = 'HomeController';
-        $archivoControlador = BASE_PATH . '/controllers/HomeController.php';
+        // 1. Obtener URL
+        $url = isset($_GET['url']) ? $_GET['url'] : 'inicio/index';
+        $parts = explode('/', rtrim($url, '/'));
 
-        // 2. Si hay una ruta en la URL, buscamos el controlador correspondiente
-        if (!empty($url[0])) {
-            $nombreCandidato = ucfirst(strtolower($url[0])) . 'Controller';
-            $rutaCandidata = BASE_PATH . '/controllers/' . $nombreCandidato . '.php';
-            
-            if (file_exists($rutaCandidata)) {
-                $controladorNombre = $nombreCandidato;
-                $archivoControlador = $rutaCandidata;
-                unset($url[0]);
-            }
-        }
-
-        // 3. ¡IMPORTANTE! Cargamos el archivo antes de instanciar la clase
-        if (file_exists($archivoControlador)) {
-            require_once $archivoControlador;
+        // 2. Definir Controlador
+        $nombre = $parts[0];
+        if (empty($nombre) || $nombre === 'inicio') {
+            $controladorNombre = 'HomeController';
         } else {
-            die("Error: No se pudo cargar el archivo del controlador: " . $archivoControlador);
+            $controladorNombre = ucfirst($nombre) . 'Controller';
         }
 
-        // 4. Instanciamos el controlador pasando la conexión a BD
-        global $db;
-        $instancia = new $controladorNombre($db);
+        // 3. Definir Método
+        $metodo = isset($parts[1]) ? $parts[1] : 'index';
 
-        // 5. Definimos el método a ejecutar
-        $metodo = 'index';
-        if (isset($url[1]) && method_exists($instancia, $url[1])) {
-            $metodo = $url[1];
-            unset($url[1]);
+        // 4. Instanciar y ejecutar
+        if (class_exists($controladorNombre)) {
+            $controller = new $controladorNombre($this->db);
+            if (method_exists($controller, $metodo)) {
+                $controller->$metodo();
+            } else {
+                die("Método '$metodo' no encontrado.");
+            }
+        } else {
+            die("Controlador '$controladorNombre' no encontrado. Verifica el nombre del archivo.");
         }
-        
-        // 6. Ejecutamos el método con los parámetros restantes
-        call_user_func_array([$instancia, $metodo], array_values($url));
-    }
-
-    private function parseUrl() {
-        return isset($_GET['url']) ? explode('/', filter_var(rtrim($_GET['url'], '/'), FILTER_SANITIZE_URL)) : [];
-    }
-}
+    } // Cierre de la función run
+} // Cierre de la clase Router
