@@ -52,11 +52,11 @@ El esquema relacional consta de 4 tablas optimizadas:
 
 ---
 ```sql
--- Base de datos para Agua SAC
+
 CREATE DATABASE IF NOT EXISTS control_de_cobros;
 USE control_de_cobros;
 
--- 1. Usuarios (Acceso Administrativo)
+
 CREATE TABLE usuarios (
     id_usuario INT AUTO_INCREMENT PRIMARY KEY,
     nombre_usuario VARCHAR(50) NOT NULL UNIQUE,
@@ -64,7 +64,7 @@ CREATE TABLE usuarios (
     rol ENUM('admin', 'operador') DEFAULT 'operador'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- 2. Clientes (Acceso de Consulta)
+
 CREATE TABLE clientes (
     id_cliente INT AUTO_INCREMENT PRIMARY KEY,
     dni CHAR(8) NOT NULL UNIQUE,
@@ -74,7 +74,6 @@ CREATE TABLE clientes (
     fecha_registro TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- 3. Recibos (Control de Deudas)
 CREATE TABLE recibos (
     id_recibo INT AUTO_INCREMENT PRIMARY KEY,
     id_cliente INT NOT NULL,
@@ -86,7 +85,7 @@ CREATE TABLE recibos (
         REFERENCES clientes(id_cliente) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- 4. Pagos (Historial de Caja)
+
 CREATE TABLE pagos (
     id_pago INT AUTO_INCREMENT PRIMARY KEY,
     id_recibo INT NOT NULL,
