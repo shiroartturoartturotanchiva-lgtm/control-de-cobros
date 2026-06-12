@@ -1,7 +1,6 @@
-/* Importa los estilos del menú para que no se desarme */
 @import url('/control-de-cobros/public/css/dashboard.css');
 
-/* Estilos de la estructura de Clientes */
+/* --- Estilos de la estructura de Clientes --- */
 .main-clientes {
     margin-left: 260px; 
     padding: 25px; 
@@ -18,11 +17,7 @@
     margin-bottom: 25px; 
 }
 
-.clientes-title {
-    margin: 0; 
-    color: #333; 
-    font-size: 24px;
-}
+.clientes-title { margin: 0; color: #333; font-size: 24px; }
 
 .btn-nuevo-cliente {
     background-color: #0d6efd; 
@@ -41,8 +36,12 @@
     box-shadow: 0 2px 4px rgba(0,0,0,0.05); 
 }
 
-.table-responsive-custom {
+/* --- Tabla de Clientes --- */
+.table-responsive-custom, .table-responsive {
+    display: block;
+    width: 100%;
     overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
 }
 
 .tabla-clientes {
@@ -51,31 +50,87 @@
     text-align: left;
 }
 
-.tabla-clientes thead tr {
-    background-color: #212529; 
-    color: white;
-}
-
-.tabla-clientes th, .tabla-clientes td {
-    padding: 12px;
-}
-
-.tabla-clientes tbody tr {
-    border-bottom: 1px solid #dee2e6;
-}
-
+.tabla-clientes thead tr { background-color: #212529; color: white; }
+.tabla-clientes th, .tabla-clientes td { padding: 12px; }
+.tabla-clientes tbody tr { border-bottom: 1px solid #dee2e6; }
 .tabla-clientes tbody tr:nth-child(even) { background-color: #ffffff; }
 .tabla-clientes tbody tr:nth-child(odd) { background-color: #f8f9fa; }
 
-.celda-id { font-weight: bold; color: #0d6efd; }
-.celda-dni { color: #555; }
-.celda-nombre { font-weight: 500; color: #333; }
-.celda-direccion { color: #666; }
-.celda-vacia { color: #999; font-style: italic; }
-.celda-fecha { color: #666; }
-.celda-acciones { text-align: center; }
+/* --- Botones de Tabla --- */
+.btn-editar, .btn-eliminar {
+    display: inline-block;
+    padding: 8px 12px;
+    border-radius: 5px;
+    text-decoration: none;
+    color: white;
+    margin: 0 2px;
+    transition: opacity 0.2s;
+    cursor: pointer;
+    border: none;
+}
 
-.btn-editar { background-color: #ffc107; border: none; padding: 6px 10px; border-radius: 4px; margin-right: 5px; cursor: pointer; }
-.btn-eliminar { background-color: #dc3545; border: none; padding: 6px 10px; border-radius: 4px; cursor: pointer; }
-.btn-editar i { color: #000; }
-.btn-eliminar i { color: #fff; }
+.btn-editar { background-color: #ffc107; color: black; }
+.btn-eliminar { background-color: #dc3545; color: white; }
+.btn-editar:hover, .btn-eliminar:hover { opacity: 0.8; }
+
+/* --- Formulario de Edición (Modal/Flotante) --- */
+.modal-form {
+    background: #ffffff;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    max-width: 400px;
+    margin: 20px auto;
+    border: 1px solid #e1e4e8;
+}
+
+.modal-form h2 {
+    margin-top: 0;
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.modal-form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+    color: #555;
+}
+
+.modal-form input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    box-sizing: border-box; /* Crucial para evitar desbordes */
+}
+
+.button-group {
+    display: flex;
+    gap: 10px;
+}
+
+.btn-guardar {
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    flex: 2;
+    font-weight: bold;
+}
+
+.btn-cancelar {
+    background: #6c757d;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    flex: 1;
+    text-align: center;
+    text-decoration: none;
+}
