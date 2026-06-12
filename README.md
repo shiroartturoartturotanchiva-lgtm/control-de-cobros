@@ -1,4 +1,4 @@
-#  Agua SAC - Sistema de Gestión de Cobros
+<img width="1600" height="1200" alt="WhatsApp Image 2026-06-12 at 11 40 17 AM" src="https://github.com/user-attachments/assets/ef73ed0a-4a60-4a50-8703-d487d33a79ba" />#  Agua SAC - Sistema de Gestión de Cobros
 
 Sistema web integral diseñado para la automatización de la administración de abonados, generación de recibos mensuales y control de recaudación para la empresa **Agua SAC**.
 
@@ -111,8 +111,8 @@ CREATE TABLE pagos (
 
 <img width="899" height="1599" alt="WhatsApp Image 2026-05-07 at 7 43 32 PM" src="https://github.com/user-attachments/assets/65085f42-c7c0-4c97-8fca-2d7dc36c9d0f" />
 
-#  imagen de la empresa
+#  imagen con el uso del sitio web
+<img width="1600" height="1200" alt="WhatsApp Image 2026-06-12 at 11 40 17 AM" src="https://github.com/user-attachments/assets/2866de83-0bca-439c-b759-be478e77d399" />
 
-<img width="1600" height="1200" alt="WhatsApp Image 2026-06-12 at 11.40.17 AM" src="AQUÍ_VA_TU_ENLACE" />
 
 
