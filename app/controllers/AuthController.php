@@ -5,7 +5,15 @@ class AuthController {
     public function __construct($db) {
         $this->db = $db;
     }
-
+public function logout() {
+    session_start(); // Asegura que la sesión esté iniciada
+    session_unset();  // Borra todas las variables de sesión
+    session_destroy(); // Destruye la sesión en el servidor
+    
+    // Redirige al login o al inicio
+    header("Location: index.php?url=auth/login");
+    exit();
+}
     public function login() {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $user = $_POST['nombre_usuario'] ?? '';
@@ -17,28 +25,19 @@ class AuthController {
             $result = $stmt->get_result();
             $usuario = $result->fetch_assoc();
 
-            // Verificamos si el usuario existe y la contraseña es correcta
-            if ($usuario && password_verify($pass, $usuario['clave'])) {
-                // Iniciamos la sesión
-                if (session_status() === PHP_SESSION_NONE) {
-                    session_start();
-                }
-                
+            // Comparación simple (texto plano como en tu BD)
+            if ($usuario && $pass === $usuario['clave']) {
                 $_SESSION['id_usuario'] = $usuario['id_usuario'];
                 $_SESSION['nombre_usuario'] = $usuario['nombre_usuario'];
                 $_SESSION['rol'] = $usuario['rol'];
                 
-                // --- AQUÍ ESTABA EL PROBLEMA ---
-                // Debemos redirigir a una página válida que tu Router reconozca
-                // Usamos la ruta que configuramos en el Router (index.php?url=clientes)
-                header("Location: /control-de-cobros/index.php?url=clientes");
-                exit(); 
+                header("Location: index.php?url=clientes/index");
+                exit();
             } else {
-                $error = "Usuario o contraseña incorrectos";
-                require_once BASE_PATH . '/views/login.php';
+                header("Location: index.php?url=auth/login&error=1");
+                exit();
             }
         } else {
-            // Si no es POST, mostramos el login
             require_once BASE_PATH . '/views/auth/login.php';
         }
     }
