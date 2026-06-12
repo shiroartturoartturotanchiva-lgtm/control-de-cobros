@@ -1,26 +1,87 @@
-/* public/css/recibos.css */
-
-@import url('/control-de-cobros/public/css/dashboard.css');
-
-/* Reutilizamos la estructura del dashboard */
-body { font-family: 'Segoe UI', sans-serif; background-color: #f4f7f6; margin: 0; display: flex; }
-main { flex-grow: 1; padding: 25px; }
-
-.breadcrumb { font-size: 14px; color: #777; margin-bottom: 20px; }
-.main-card { background: #fff; border-radius: 10px; padding: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); border: 1px solid #e0e0e0; }
-
-/* Tabla de Recibos */
-.tabla-recibos { width: 100%; border-collapse: collapse; margin-top: 20px; }
-.tabla-recibos th { background-color: #1a1a1a; color: #fff; padding: 15px; text-align: left; font-size: 12px; }
-.tabla-recibos td { padding: 12px 15px; border-bottom: 1px solid #f0f0f0; color: #333; font-size: 14px; }
-
-/* Estilo para el estado (Pendiente/Pagado) sin colores llamativos */
-.badge-estado { 
-    border: 1px solid #000; 
-    padding: 3px 8px; 
-    font-size: 11px; 
-    text-transform: uppercase; 
-    font-weight: bold;
+/* --- Paleta de Colores Sugerida --- */
+:root {
+    --bg-page: #f0f4f8;        /* Azul grisáceo muy claro y suave para el fondo de página */
+    --bg-card: #ffffff;        /* Blanco puro para la tarjeta contenedora */
+    --bg-group-row: #e3f2fd;  /* Azul pastel muy claro para la fila de agrupación */
+    --text-group-row: #1976d2; /* Azul medio para el texto del nombre (buen contraste) */
+    --text-primary: #333333;   /* Gris oscuro para el texto general */
+    --text-header: #ffffff;    /* Blanco para el encabezado negro */
+    --bg-header: #212529;      /* Mantenemos el encabezado oscuro para jerarquía */
 }
 
-.btn-cobrar { background: #000; color: #fff; padding: 8px 15px; text-decoration: none; border-radius: 4px; font-size: 12px; }
+/* --- Estilos Generales --- */
+.contenedor-principal-recibos { 
+    margin-left: 260px; 
+    padding: 30px; 
+    background-color: var(--bg-page); /* Aplicamos el fondo pastel de página */
+    min-height: 100vh; 
+}
+
+/* Tarjeta contenedora de la tabla */
+.tarjeta-blanca-recibos { 
+    background: var(--bg-card); 
+    padding: 24px; 
+    border-radius: 12px; /* Un poco más redondeado para suavizar */
+    box-shadow: 0 6px 18px rgba(0,0,0,0.06); /* Sombra más suave y difusa */
+    overflow: hidden; 
+    margin-top: 20px;
+}
+
+/* --- Tabla de Recibos --- */
+.tabla-recibos-limpia {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+/* Ajusta el estilo de los encabezados de la tabla */
+.tabla-recibos-limpia thead {
+    background-color: #212529; /* Fondo oscuro */
+    color: #ffffff;            /* ¡CAMBIA ESTO A BLANCO! */
+}
+
+.tabla-recibos-limpia th, .tabla-recibos-limpia td {
+    padding: 16px; /* Más padding para "aire" */
+    border-bottom: 1px solid #e1e8ed; /* Borde más suave */
+    vertical-align: middle;
+    color: var(--text-primary);
+    font-size: 15px; /* Un poco más grande para legibilidad */
+}
+
+/* --- Fila de Agrupación (NUEVO ESTILO PASTEL) --- */
+.group-row {
+    background-color: var(--bg-group-row) !important; /* Fondo azul pastel suave */
+    color: var(--text-group-row) !important;      /* Texto azul para jerarquía */
+    font-weight: 700;
+    text-align: left;
+}
+
+.group-row td {
+    padding: 16px !important; /* Padding consistente */
+    border-bottom: none !important;
+}
+
+/* --- Botones Cuadrados Modernos --- */
+.btn-icon {
+    width: 38px; /* Un pelín más grandes */
+    height: 38px;
+    border: none;
+    border-radius: 8px; /* Más redondeados */
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 4px; /* Más separación */
+    transition: all 0.2s ease;
+}
+
+.btn-editar { background-color: #ffc107; color: #000; }
+.btn-eliminar { background-color: #dc3545; color: #fff; }
+.btn-icon:hover { opacity: 0.9; transform: scale(1.08) translateY(-1px); box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+
+/* --- Badges de Estado Suavizados --- */
+.badge {
+    font-size: 11px; padding: 6px 12px; text-transform: uppercase; 
+    font-weight: bold; border-radius: 6px; display: inline-block;
+}
+.bg-success { background-color: #a5d6a7 !important; color: #1b5e20 !important; } /* Verde pastel */
+.bg-danger { background-color: #ef9a9a !important; color: #b71c1c !important; }  /* Rojo pastel */
