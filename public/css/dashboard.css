@@ -28,12 +28,24 @@
     color: white !important;
 }
 
-/* Responsivas para Ocultar/Mostrar en Celulares */
 @media (max-width: 992px) {
+    /* 1. Ocultamos el menú lateral en móvil */
     .sidebar-moderno {
-        left: -260px;
+        display: none; 
     }
-    .sidebar-moderno.mostrar-movil {
-        left: 0;
+
+    /* 2. El contenido ahora ocupa el 100% de la pantalla */
+    .main-wrapper, .main-clientes {
+        margin-left: 0 !important;
+        width: 100% !important;
+        padding: 10px !important;
     }
+
+    /* 3. Ajustamos la tabla para que no se salga de la pantalla */
+    .tabla-clientes {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
 }
