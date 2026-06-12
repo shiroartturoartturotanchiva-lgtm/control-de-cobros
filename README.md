@@ -22,6 +22,10 @@ Sistema web integral diseñado para la automatización de la administración de 
 *   **Consulta Externa**: Portal para que el cliente visualice deudas con su DNI y clave web.
 *   **Registro de Pagos**: Liquidación de recibos y registro de transacciones de caja.
 
+## trello
+https://trello.com/invite/b/6a2839785fd7bcf1cbb4fa47/ATTI8b120bdc6d592903830aeb650f219f883E4116CE/control-cobros
+
+
 ### Requisitos No Funcionales
 *   **Seguridad**: Encriptación de claves y uso de **PDO** contra Inyección SQL.
 *   **Arquitectura**: Patrón Modelo-Vista-Controlador (MVC).
